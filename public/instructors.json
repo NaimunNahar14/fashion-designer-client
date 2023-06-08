@@ -1,0 +1,32 @@
+[
+    {
+      "image": "https://ibb.co/kJk92nG",
+      "name": "Zakir Khan",
+      "email": "zakirkhan@gmail.com"
+    },
+    {
+      "image": "https://ibb.co/0ts3NyD",
+      "name": "Humayra Zaman",
+      "email": "humayrazaman@gmail.com"
+    },
+    {
+      "image": "https://ibb.co/PtMy2Sf",
+      "name": "Amir Rahman",
+      "email": "amir@gmail.com"
+    },
+    {
+        "image": "https://ibb.co/4SJWw7N",
+        "name": "Jamil Ahsan",
+        "email": "jamil@gmail.com"
+      },
+      {
+        "image": "https://ibb.co/6ZPjNhM",
+        "name": "Akib Zaman",
+        "email": "akib@gmail.com"
+      },
+      {
+        "image": "https://ibb.co/CP76kzX",
+        "name": "Farhana Akter",
+        "email": "farhana@gmail.com"
+      }
+  ]

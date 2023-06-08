@@ -1,0 +1,52 @@
+[
+    {
+      "image": "https://ibb.co/q1TpFYZ",
+      "name": "Fashion Orientation",
+      "instructorName": "Zakir Khan",
+      "availableSeats": 20,
+      "price": 100
+    },
+    {
+      "image": "https://ibb.co/4j9cDQf",
+      "name": "Color and Theory for Design",
+      "instructorName": "Humayra Zaman",
+      "availableSeats": 18,
+      "price": 120
+    },
+    {
+      "image": "https://ibb.co/YDKbqNv",
+      "name": "Pattern Design",
+      "instructorName": "Amir Rahman",
+      "availableSeats": 15,
+      "price": 130
+    },
+    {
+        "image": "https://ibb.co/1dsq8GL",
+        "name": "Fashion Photography",
+        "instructorName": "Jamil Ahsan",
+        "availableSeats": 16,
+        "price": 135
+      },
+      {
+        "image": "https://ibb.co/v40G230",
+        "name": "Computer Application for design",
+        "instructorName": "Akib Zaman",
+        "availableSeats": 17,
+        "price": 145
+      },
+      {
+        "image": " https://ibb.co/HKq6NZh",
+        "name": "Material Study and design",
+        "instructorName": "Farhana Akter",
+        "availableSeats": 19,
+        "price": 125
+      },
+      {
+        "image": "https://ibb.co/YDKbqNv",
+        "name": "Fashion History",
+        "instructorName": "Farhana Akter",
+        "availableSeats": 13,
+        "price": 115
+      }
+    
+  ]
