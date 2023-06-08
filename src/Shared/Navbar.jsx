@@ -28,6 +28,7 @@ const Navbar = () => {
         <li>
             <Link to="/">Reviews</Link>
         </li>
+        <li><Link to='/login'>Login</Link></li>
     </>
     return (
         <>
@@ -78,7 +79,7 @@ const Navbar = () => {
                         </button>
                     </ul>
                 </div>
-                <button className="btn btn-neutral">Login</button>
+                
             </div>
         </>
     );
