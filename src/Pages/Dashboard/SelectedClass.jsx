@@ -50,8 +50,8 @@ const SelectedClass = () => {
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Food</th>
-                            <th>Item Name</th>
+                            <th>Classes Image</th>
+                            <th>Classes Name</th>
                             <th>Price</th>
                             <th>Action</th>
                         </tr>

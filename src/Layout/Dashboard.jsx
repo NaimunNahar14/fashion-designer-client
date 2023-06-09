@@ -5,6 +5,9 @@ import useCart from '../Hooks/UseCart';
 
 const Dashboard = () => {
     const [cart] = useCart();
+
+    const isAdmin = true;
+    const isInstructor = true;
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -15,15 +18,55 @@ const Dashboard = () => {
             <div className="drawer-side bg-[#D1A054]">
                 <label htmlFor="my-drawer" className="drawer-overlay"></label>
                 <ul className="menu p-4 w-70">
-                    <li><NavLink to="/"><FaHome></FaHome> User Home</NavLink></li>
-                    <li><NavLink to="/dashboard/selectedclasses"><FaBookOpen></FaBookOpen>My Selected Class
-                        <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
-                    </NavLink></li>
-                    <li><NavLink to="/dashboard/paymenthistory"><FaWallet></FaWallet> Payment History</NavLink></li>
-                    <li>
-                        <NavLink to="/dashboard/myenrolledclasses"><FaList></FaList> My Enrolled Classes
-                        </NavLink>
-                    </li>
+
+                    {
+                        isAdmin ? <>
+                            <li><NavLink to="/"><FaHome></FaHome> Admin Home</NavLink></li>
+                            <li><NavLink to="/dashboard/selectedclasses"><FaBookOpen></FaBookOpen>Manage Classes
+                                
+                            </NavLink></li>
+                            <li><NavLink to="/dashboard/manageusers"><FaWallet></FaWallet> Manage Users</NavLink></li>
+
+                        </> : isInstructor ? <>
+                            <li><NavLink to="/"><FaHome></FaHome> Instructor Home</NavLink></li>
+                            <li><NavLink to="/dashboard/selectedclasses"><FaBookOpen></FaBookOpen>Add a Class
+                               
+                            </NavLink></li>
+                            <li><NavLink to="/dashboard/paymenthistory"><FaWallet></FaWallet>My Classes</NavLink></li>
+                            <li>
+                                <NavLink to="/dashboard/myenrolledclasses"><FaList></FaList>Total Enrolled Classes
+                                </NavLink>
+                            </li>
+
+                        </> : <><li><NavLink to="/"><FaHome></FaHome> User Home</NavLink></li>
+                            <li><NavLink to="/dashboard/selectedclasses"><FaBookOpen></FaBookOpen>My Selected Class
+                                <span className="badge inl badge-secondary">+{cart?.length || 0}</span>
+                            </NavLink></li>
+                            <li><NavLink to="/dashboard/paymenthistory"><FaWallet></FaWallet> Payment History</NavLink></li>
+                            <li>
+                                <NavLink to="/dashboard/myenrolledclasses"><FaList></FaList> My Enrolled Classes
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/myenrolledclasses"><FaList></FaList>FeedBack
+                                </NavLink>
+                            </li>
+                            
+                            </>
+                    }
+
+
+
+
+
+
+
+
+
+
+
+
+
                     <div className="divider"></div>
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
                     <li><NavLink to="/classes">Classes</NavLink></li>
