@@ -1,48 +1,48 @@
 [
     {
-      "image": "https://ibb.co/q1TpFYZ",
+      "image": "https://i.ibb.co/YjHhTBr/pexels-photo-7763060.jpg",
       "name": "Fashion Orientation",
       "instructorName": "Zakir Khan",
       "availableSeats": 20,
       "price": 100
     },
     {
-      "image": "https://ibb.co/4j9cDQf",
+      "image": "https://i.ibb.co/Bgdm71P/240-F-192862416-au7g-PTsrnj-Td-L7rg-Jnrq0jrjh-HTK9-Nw-Z.jpg",
       "name": "Color and Theory for Design",
       "instructorName": "Humayra Zaman",
       "availableSeats": 18,
       "price": 120
     },
     {
-      "image": "https://ibb.co/YDKbqNv",
+      "image": "https://i.ibb.co/cbpx7yz/240-F-189978816-5b-IYq-XD4tm-XZKn96-JUv-H7-Vmrhc5-S76-K2.jpg",
       "name": "Pattern Design",
       "instructorName": "Amir Rahman",
       "availableSeats": 15,
       "price": 130
     },
     {
-        "image": "https://ibb.co/1dsq8GL",
+        "image": "https://i.ibb.co/s65wy92/240-F-189979040-6kj9-S2w4-DXpis7-DS3-O9-Lt02j-Rs-MFFWf-C.jpg",
         "name": "Fashion Photography",
         "instructorName": "Jamil Ahsan",
         "availableSeats": 16,
         "price": 135
       },
       {
-        "image": "https://ibb.co/v40G230",
+        "image": "https://i.ibb.co/jkn27yn/240-F-268187447-m81pg21ynculz2gb-Cs-YQ7l-Qqb-DPdnkm-P.jpg",
         "name": "Computer Application for design",
         "instructorName": "Akib Zaman",
         "availableSeats": 17,
         "price": 145
       },
       {
-        "image": " https://ibb.co/HKq6NZh",
+        "image": "https://i.ibb.co/zmZp8d6/240-F-190105720-D4-Tr-M79-Gjf9-Cf-VP6vx9-W40n-K98-Mn23u5.jpg",
         "name": "Material Study and design",
         "instructorName": "Farhana Akter",
         "availableSeats": 19,
         "price": 125
       },
       {
-        "image": "https://ibb.co/YDKbqNv",
+        "image": "https://i.ibb.co/cbpx7yz/240-F-189978816-5b-IYq-XD4tm-XZKn96-JUv-H7-Vmrhc5-S76-K2.jpg",
         "name": "Fashion History",
         "instructorName": "Farhana Akter",
         "availableSeats": 13,
@@ -50,3 +50,5 @@
       }
     
   ]
+
+

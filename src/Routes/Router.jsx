@@ -7,6 +7,10 @@ import Classes from "../Pages/Classes";
 import Instructors from "../Pages/Instructors/Instructors";
 import Login from "../Pages/Login/Login";
 import Signup from "../Pages/Signup";
+import Dashboard from "../Layout/Dashboard";
+import SelectedClass from '../Pages/Dashboard/SelectedClass';
+import EnrolledClass from "../Pages/Dashboard/EnrolledClass";
+import PaymentHistory from "../Pages/Dashboard/Payment/PaymentHistory";
 
 
 export const router = createBrowserRouter([
@@ -37,4 +41,24 @@ export const router = createBrowserRouter([
       }
     ]
   },
+  {
+    path: 'dashboard',
+    element: <Dashboard></Dashboard>,
+    children: [
+      {
+        path: 'selectedclasses', 
+        element:<SelectedClass></SelectedClass>
+      },
+      {
+        path:'myenrolledclasses',
+        element:<EnrolledClass></EnrolledClass>
+      },
+      {
+        path:'paymenthistory',
+        element:<PaymentHistory></PaymentHistory>
+      }
+    ]
+  }
+
+  
 ]);

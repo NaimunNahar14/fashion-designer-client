@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
+import { FaShoppingCart } from 'react-icons/fa';
+import useCart from "../Hooks/UseCart";
 
 
 const Navbar = () => {
     const [theme, setTheme] = useState('light');
+    const [cart] = useCart();
 
     const toggleTheme = () => {
         const newTheme = theme === "light" ? "dark" : "light";
@@ -11,6 +15,14 @@ const Navbar = () => {
         document.documentElement.classList.toggle("dark", newTheme === "dark");
     };
 
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleLogOut = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+
+    }
 
     const navOptions = <>
         <li>
@@ -23,12 +35,26 @@ const Navbar = () => {
             <Link to="/classes">Classes</Link>
         </li>
         <li>
-            <Link to="/">Dashboard</Link>
+            <Link to="/dashboard/selectedclasses">
+                <button className="btn gap-2">
+                    <FaShoppingCart></FaShoppingCart>
+                    <div className="badge badge-secondary">+{cart?.length || 0}</div>
+                </button>
+            </Link>
         </li>
         <li>
             <Link to="/">Reviews</Link>
         </li>
-        <li><Link to='/login'>Login</Link></li>
+
+        {
+            user ? <>
+                <span>{user?.displayName}</span>
+                {/* <span>{user?.photoURL}</span> */}
+                <button onClick={handleLogOut} className="btn btn-active btn-ghost">Logout</button>
+            </> : <>
+                <li><Link to="/login">Login</Link></li>
+            </>
+        }
     </>
     return (
         <>
@@ -79,7 +105,7 @@ const Navbar = () => {
                         </button>
                     </ul>
                 </div>
-                
+
             </div>
         </>
     );

@@ -1,13 +1,76 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { AuthContext } from '../Providers/AuthProvider';
+import Swal from 'sweetalert2';
+import { useLocation, useNavigate } from 'react-router-dom';
+import useCart from '../Hooks/UseCart';
+
 
 
 const Classes = () => {
-    const[classes, setClasses] = useState([]);
+    const [classes, setClasses] = useState([]);
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const [, refetch] = useCart();
     useEffect(() => {
         fetch('http://localhost:5000/classes')
             .then(res => res.json())
             .then(data => setClasses(data))
     }, [])
+
+    const handleAddToCart = classes => {
+        if (user && user.email) {
+            const select = {
+                ClassId: classes._id,
+                name: classes.name,
+                image: classes.image,
+                price: classes.price,
+                instructorName: classes.instructorName,
+                email: user.email
+            };
+            fetch('http://localhost:5000/carts', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(select)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.insertedId) {
+                        refetch();
+                        Swal.fire({
+                            position: 'top-end',
+                            icon: 'success',
+                            title: 'Classes added on the cart.',
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                });
+        } else {
+            Swal.fire({
+                title: 'Please login to Select Classes',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login now!'
+            }).then(result => {
+                if (result.isConfirmed) {
+                    navigate('/login', { state: { from: location } });
+                }
+            });
+        }
+    };
+
+
+
+
+
+
+
+
     return (
         <div className='w-full mb-3 mt-3'>
             <div className="overflow-x-auto">
@@ -48,8 +111,10 @@ const Classes = () => {
                                 <td>{classes.availableSeats}</td>
                                 <td>$ {classes.price}</td>
                                 <td>
-                                    <button className="btn btn-ghost btn-xs">Select</button>
+                                    <button onClick={() => handleAddToCart(classes)} className="btn btn-primary btn-xs"
+                                    >Select</button>
                                 </td>
+
 
 
 
