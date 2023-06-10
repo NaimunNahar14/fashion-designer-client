@@ -26,19 +26,19 @@ const Dashboard = () => {
                     {
                         isAdmin ? <>
                             <li><NavLink to="/"><FaHome></FaHome> Admin Home</NavLink></li>
-                            <li><NavLink to="/dashboard/selectedclasses"><FaBookOpen></FaBookOpen>Manage Classes
+                            <li><NavLink to="/dashboard/manageclasses"><FaBookOpen></FaBookOpen>Manage Classes
                                 
                             </NavLink></li>
                             <li><NavLink to="/dashboard/manageusers"><FaUserFriends></FaUserFriends> Manage Users</NavLink></li>
 
                         </> : isInstructor ? <>
                             <li><NavLink to="/"><FaHome></FaHome> Instructor Home</NavLink></li>
-                            <li><NavLink to="/dashboard/selectedclasses"><FaBookOpen></FaBookOpen>Add a Class
+                            <li><NavLink to="/dashboard/addedclass"><FaBookOpen></FaBookOpen>Add a Class
                                
                             </NavLink></li>
-                            <li><NavLink to="/dashboard/paymenthistory"><FaBook></FaBook> My Classes</NavLink></li>
+                            <li><NavLink to="/dashboard/myclasses"><FaBook></FaBook> My Classes</NavLink></li>
                             <li>
-                                <NavLink to="/dashboard/myenrolledclasses"><FaList></FaList>Total Enrolled Classes
+                                <NavLink to="/dashboard/totalenrolledclasses"><FaList></FaList>Total Enrolled Classes
                                 </NavLink>
                             </li>
 
@@ -52,7 +52,7 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/myenrolledclasses"><FaRegEnvelope></FaRegEnvelope>FeedBack
+                                <NavLink to="/dashboard/feedback"><FaRegEnvelope></FaRegEnvelope>FeedBack
                                 </NavLink>
                             </li>
                             
