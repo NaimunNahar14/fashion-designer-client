@@ -1,13 +1,17 @@
 
 import { NavLink, Outlet } from 'react-router-dom';
-import { FaWallet, FaHome, FaBookOpen, FaList } from 'react-icons/fa';
+import { FaWallet, FaHome, FaBookOpen, FaList,FaBook, FaRegEnvelope,FaUserFriends } from 'react-icons/fa';
 import useCart from '../Hooks/UseCart';
+import useAdmin from '../Hooks/UseAdmin';
+import useInstructor from '../Hooks/UseInstructor';
 
 const Dashboard = () => {
     const [cart] = useCart();
 
-    const isAdmin = true;
-    const isInstructor = true;
+    // const isAdmin = true;
+    // const isInstructor = false;
+    const [isAdmin] = useAdmin();
+    const [isInstructor] = useInstructor();
     return (
         <div className="drawer lg:drawer-open">
             <input id="my-drawer" type="checkbox" className="drawer-toggle" />
@@ -25,14 +29,14 @@ const Dashboard = () => {
                             <li><NavLink to="/dashboard/selectedclasses"><FaBookOpen></FaBookOpen>Manage Classes
                                 
                             </NavLink></li>
-                            <li><NavLink to="/dashboard/manageusers"><FaWallet></FaWallet> Manage Users</NavLink></li>
+                            <li><NavLink to="/dashboard/manageusers"><FaUserFriends></FaUserFriends> Manage Users</NavLink></li>
 
                         </> : isInstructor ? <>
                             <li><NavLink to="/"><FaHome></FaHome> Instructor Home</NavLink></li>
                             <li><NavLink to="/dashboard/selectedclasses"><FaBookOpen></FaBookOpen>Add a Class
                                
                             </NavLink></li>
-                            <li><NavLink to="/dashboard/paymenthistory"><FaWallet></FaWallet>My Classes</NavLink></li>
+                            <li><NavLink to="/dashboard/paymenthistory"><FaBook></FaBook> My Classes</NavLink></li>
                             <li>
                                 <NavLink to="/dashboard/myenrolledclasses"><FaList></FaList>Total Enrolled Classes
                                 </NavLink>
@@ -48,24 +52,12 @@ const Dashboard = () => {
                                 </NavLink>
                             </li>
                             <li>
-                                <NavLink to="/dashboard/myenrolledclasses"><FaList></FaList>FeedBack
+                                <NavLink to="/dashboard/myenrolledclasses"><FaRegEnvelope></FaRegEnvelope>FeedBack
                                 </NavLink>
                             </li>
                             
                             </>
                     }
-
-
-
-
-
-
-
-
-
-
-
-
 
                     <div className="divider"></div>
                     <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
