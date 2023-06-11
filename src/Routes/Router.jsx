@@ -18,6 +18,7 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses";
 import Payment from "../Pages/Dashboard/Payment/Payment";
+import Reviews from "../Pages/Reviews";
 
 
 export const router = createBrowserRouter([
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
         path:"/signup",
         element: <Signup></Signup>
 
+      },
+      {
+        path:'/reviews',
+        element: <Reviews></Reviews>
       }
     ]
   },
