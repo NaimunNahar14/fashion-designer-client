@@ -1,11 +1,13 @@
-import React from 'react';
+
 import useCart from '../../Hooks/UseCart';
 import { FaTrashAlt } from 'react-icons/fa';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const SelectedClass = () => {
     const [cart, refetch] = useCart();
-    const total = cart.reduce((sum, classes) => classes.price + sum, 0);
+    // const total = cart.reduce((sum, classes) => classes.price + sum, 0);
+
 
     const handleDelete = classes => {
         Swal.fire({
@@ -41,8 +43,8 @@ const SelectedClass = () => {
 
             <div className="uppercase font-semibold h-[60px] flex justify-evenly items-center">
                 <h3 className="text-3xl">Total Selected Classes: {cart.length}</h3>
-                <h3 className="text-3xl">Total Price: ${total}</h3>
-                <button className="btn btn-warning btn-sm">PAY</button>
+              
+              
             </div>
             <div className="overflow-x-auto w-full">
                 <table className="table w-full">
@@ -54,6 +56,7 @@ const SelectedClass = () => {
                             <th>Classes Name</th>
                             <th>Price</th>
                             <th>Action</th>
+                            <th>Button </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -77,6 +80,9 @@ const SelectedClass = () => {
                                 <td className="text-end">${classes.price}</td>
                                 <td>
                                     <button onClick={() => handleDelete(classes)}  className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button>
+                                </td>
+                                <td>
+                                <Link to={`/dashboard/payment/${classes._id}`}><button className="btn btn-warning btn-sm">PAY</button></Link>
                                 </td>
                             </tr>)
                         }

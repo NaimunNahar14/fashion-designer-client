@@ -5,29 +5,31 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import useCart from '../Hooks/UseCart';
 
 
-
 const Classes = () => {
     const [classes, setClasses] = useState([]);
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     const [, refetch] = useCart();
+
     useEffect(() => {
         fetch('http://localhost:5000/classes')
-            .then(res => res.json())
-            .then(data => setClasses(data))
-    }, [])
+            .then((res) => res.json())
+            .then((data) => setClasses(data));
+    }, []);
 
-    const handleAddToCart = classes => {
+    const handleAddToCart = (selectedClass) => {
         if (user && user.email) {
             const select = {
-                ClassId: classes._id,
-                name: classes.name,
-                image: classes.image,
-                price: classes.price,
-                instructorName: classes.instructorName,
-                email: user.email
+                classId: selectedClass._id,
+                name: selectedClass.name,
+                image: selectedClass.image,
+                price: selectedClass.price,
+                instructorName: selectedClass.instructorName,
+                email: user.email,
+                availableSeats: selectedClass.availableSeats
             };
+
             fetch('http://localhost:5000/carts', {
                 method: 'POST',
                 headers: {
@@ -35,14 +37,14 @@ const Classes = () => {
                 },
                 body: JSON.stringify(select)
             })
-                .then(res => res.json())
-                .then(data => {
+                .then((res) => res.json())
+                .then((data) => {
                     if (data.insertedId) {
                         refetch();
                         Swal.fire({
                             position: 'top-end',
                             icon: 'success',
-                            title: 'Classes added on the cart.',
+                            title: 'Classes added to the cart.',
                             showConfirmButton: false,
                             timer: 1500
                         });
@@ -50,26 +52,19 @@ const Classes = () => {
                 });
         } else {
             Swal.fire({
-                title: 'Please login to Select Classes',
+                title: 'Please log in to select classes',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
                 confirmButtonText: 'Login now!'
-            }).then(result => {
+            }).then((result) => {
                 if (result.isConfirmed) {
                     navigate('/login', { state: { from: location } });
                 }
             });
         }
     };
-
-
-
-
-
-
-
 
     return (
         <div className='w-full mb-3 mt-3'>
@@ -84,48 +79,41 @@ const Classes = () => {
                             <th>Available Seats</th>
                             <th>Price</th>
                             <th>Button</th>
-
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            classes.map((classes, index) => <tr key={classes._id}>
-                                <td>
-                                    {index + 1}
-                                </td>
+                        {classes.map((selectedClass, index) => (
+                            <tr key={selectedClass._id}>
+                                <td>{index + 1}</td>
                                 <td>
                                     <div className="flex items-center space-x-3">
                                         <div className="avatar">
                                             <div className="mask mask-squircle w-12 h-12">
-                                                <img src={classes.image} alt='' />
+                                                <img src={selectedClass.image} alt='' />
                                             </div>
                                         </div>
                                         <div>
-                                            <div className="font-bold">{classes.name}</div>
+                                            <div className="font-bold">{selectedClass.name}</div>
                                         </div>
                                     </div>
                                 </td>
+                                <td>{selectedClass.instructorName}</td>
+                                <td>{selectedClass.availableSeats}</td>
+                                <td>$ {selectedClass.price}</td>
                                 <td>
-                                    {classes.instructorName}
+                                    {selectedClass.availableSeats > 0 ? (
+                                        <button onClick={() => handleAddToCart(selectedClass)} className="btn btn-primary btn-xs">
+                                            Select
+                                        </button>
+                                    ) : (
+                                        <button disabled className="btn btn-secondary btn-xs">
+                                            Sold Out
+                                        </button>
+                                    )}
                                 </td>
-                                <td>{classes.availableSeats}</td>
-                                <td>$ {classes.price}</td>
-                                <td>
-                                    <button onClick={() => handleAddToCart(classes)} className="btn btn-primary btn-xs"
-                                    >Select</button>
-                                </td>
-
-
-
-
-                            </tr>)
-                        }
-
-
+                            </tr>
+                        ))}
                     </tbody>
-
-
-
                 </table>
             </div>
         </div>

@@ -41,6 +41,10 @@ const Dashboard = () => {
                                 <NavLink to="/dashboard/totalenrolledclasses"><FaList></FaList>Total Enrolled Classes
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink to="/dashboard/feedback"><FaRegEnvelope></FaRegEnvelope>FeedBack
+                                </NavLink>
+                            </li>
 
                         </> : <><li><NavLink to="/"><FaHome></FaHome> User Home</NavLink></li>
                             <li><NavLink to="/dashboard/selectedclasses"><FaBookOpen></FaBookOpen>My Selected Class
@@ -51,10 +55,7 @@ const Dashboard = () => {
                                 <NavLink to="/dashboard/myenrolledclasses"><FaList></FaList> My Enrolled Classes
                                 </NavLink>
                             </li>
-                            <li>
-                                <NavLink to="/dashboard/feedback"><FaRegEnvelope></FaRegEnvelope>FeedBack
-                                </NavLink>
-                            </li>
+                           
                             
                             </>
                     }
