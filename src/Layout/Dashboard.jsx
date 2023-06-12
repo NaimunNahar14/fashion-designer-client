@@ -59,11 +59,6 @@ const Dashboard = () => {
                             
                             </>
                     }
-
-                    <div className="divider"></div>
-                    <li><NavLink to="/"><FaHome></FaHome> Home</NavLink> </li>
-                    <li><NavLink to="/classes">Classes</NavLink></li>
-                    <li><NavLink to="/instructors">Instructor</NavLink></li>
                 </ul>
 
             </div>

@@ -11,15 +11,15 @@ const stripePromise = loadStripe(import.meta.env.VITE_Payment_Gateway_PK);
 
 const Payment = () => {
     const [cart] = useCart();
-    const {id} = useParams();
+    const { id } = useParams();
     console.log(id);
-    const singleCart = cart.find((c)=> c._id == id)
-    // console.log(singleCard);
+    const singleCart = cart.find((c) => c._id == id);
+    // console.log(singleCart); // Corrected variable name
     return (
         <div>
-            <h2>it is a payment</h2>
-            <Elements stripe={stripePromise} >
-                <CheckoutForm singleCart= {singleCart} price= {singleCart.price}></CheckoutForm>
+            <h2>It is a payment</h2>
+            <Elements stripe={stripePromise}>
+                <CheckoutForm singleCart={singleCart} price={singleCart.price} />
             </Elements>
         </div>
     );

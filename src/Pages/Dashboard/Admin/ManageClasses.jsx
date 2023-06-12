@@ -1,19 +1,42 @@
-import React from 'react';
+
 import UseClasses from '../../../Hooks/UseClasses';
+
 
 
 const ManageClasses = () => {
     const [classes] = UseClasses();
-    const handleApprove = (classId) => {
-        // Handle approve logic here
+    const handleApprove = id => {
+        fetch(`http://localhost:5000/classes/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: 'approved' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                //   
+                }
+            })
     };
 
-    const handleDeny = (classId) => {
-        // Handle deny logic here
-    };
-
-    const handleSendFeedback = (classId) => {
-        // Handle send feedback logic here
+    const handleDeny = id => {
+        fetch(`http://localhost:5000/classes/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({status: 'denied' })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                if (data.modifiedCount > 0) {
+                    //udate
+                }
+            })
     };
     return (
         <div className="w-full">
@@ -44,7 +67,7 @@ const ManageClasses = () => {
                                 <td>{cls.instructorEmail}</td>
                                 <td>{cls.availableSeats}</td>
                                 <td>${cls.price}</td>
-                                <td>{cls.status}</td>
+                                <td>{cls?.status}</td>
                                 <td>
                                     {cls.status === 'pending' && (
                                         <>
@@ -56,15 +79,18 @@ const ManageClasses = () => {
                                             </button>
                                         </>
                                     )}
-                                    {cls.status === 'approved' && (
-                                        <button className="btn btn-sm btn-primary" onClick={() => handleSendFeedback(cls._id)}>
+                                    {cls.status == 'approved' && (
+                                         <button className="btn btn-sm btn-primary">
                                             Send Feedback
                                         </button>
+
                                     )}
-                                    {cls.status === 'denied' && (
-                                        <button className="btn btn-sm btn-primary" onClick={() => handleSendFeedback(cls._id)}>
+                                    {cls.status == 'denied' && (
+
+                                        <button className="btn btn-sm btn-primary">
                                             Send Feedback
                                         </button>
+
                                     )}
                                 </td>
                             </tr>

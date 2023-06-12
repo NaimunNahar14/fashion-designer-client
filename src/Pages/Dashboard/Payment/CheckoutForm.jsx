@@ -77,16 +77,17 @@ const CheckoutForm = ({ singleCart, price }) => {
         if (paymentIntent.status === 'succeeded') {
             setTransactionId(paymentIntent.id);
             // save payment information to the server
+            const cartItems = Array.isArray(singleCart) ? singleCart : [singleCart]; // Ensure singleCart is an array
             const payment = {
                 Name: user?.name,
                 email: user?.email,
                 transactionId: paymentIntent.id,
                 price,
                 date: new Date(),
-                availableSeats: singleCart.availableSeats,
-                cartItems: singleCart.map(item => item._id),
-                ClassId: singleCart.map(classId => classId._id),
-                instructorName: singleCart.instructorName
+                availableSeats: cartItems[0].availableSeats,
+                cartItems: cartItems.map(item => item._id),
+                status: 'class pending',
+                instructorName: cartItems[0].instructorName,
             }
             axiosSecure.post('/payments', payment)
                 .then(res => {

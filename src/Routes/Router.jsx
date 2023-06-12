@@ -21,6 +21,7 @@ import Payment from "../Pages/Dashboard/Payment/Payment";
 
 import Feedbackform from "../Pages/Home/Feedbackform";
 import ErrorPage from "../ErrorPage";
+import FeedbackModal from "../Pages/Dashboard/Admin/FeedbackModal";
 
 
 
@@ -91,8 +92,9 @@ export const router = createBrowserRouter([
         path:'payment/:id',
         element: <Payment></Payment>
         
-      }
-
+      },
+      
+      
     ]
   }
 
