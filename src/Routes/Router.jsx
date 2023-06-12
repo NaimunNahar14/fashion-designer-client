@@ -18,7 +18,9 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses";
 import Payment from "../Pages/Dashboard/Payment/Payment";
-import Reviews from "../Pages/Reviews";
+
+import Feedbackform from "../Pages/Home/Feedbackform";
+
 
 
 export const router = createBrowserRouter([
@@ -49,7 +51,7 @@ export const router = createBrowserRouter([
       },
       {
         path:'/reviews',
-        element: <Reviews></Reviews>
+        element: <Feedbackform></Feedbackform>
       }
     ]
   },

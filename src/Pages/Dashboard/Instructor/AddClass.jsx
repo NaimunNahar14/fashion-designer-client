@@ -11,7 +11,7 @@ const img_hosting_token = import.meta.env.VITE_Image_Upload_Token;
 const AddClass = () => {
     const [axiosSecure] = useAxiosSecure();
     const { user } = useContext(AuthContext);
-    const { register, handleSubmit} = useForm();
+    const { register, handleSubmit, reset} = useForm();
     const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`
 
 
@@ -43,7 +43,7 @@ const AddClass = () => {
                 const response = await axiosSecure.post('/classes', newClass);
 
                 if (response.data.insertedId) {
-                    // reset();
+                    reset();
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
