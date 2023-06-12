@@ -39,9 +39,6 @@ const Navbar = () => {
                 </button>
             </Link>
         </li>
-        <li>
-            <Link to="/err">Error Page</Link>
-        </li>
         {user ? (
             <>
                 <li>
