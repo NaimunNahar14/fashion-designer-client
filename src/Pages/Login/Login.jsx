@@ -1,13 +1,15 @@
-import  { useContext} from 'react';
+import { useContext, useState } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 import Swal from 'sweetalert2';
 import SocialLogin from '../../Shared/SocialLogin';
+import { EyeIcon, EyeSlashIcon } from '@heroicons/react/24/solid';
 
 
 const Login = () => {
     // const [disable, setDisable] = useState(true);
     const { signIn } = useContext(AuthContext);
+    const [showPass, setShowPass] = useState(false);
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -54,13 +56,18 @@ const Login = () => {
                                 </label>
                                 <input type="text" name='email' placeholder="email" className="input input-bordered" />
                             </div>
-                            <div className="form-control">
+                            <div className="form-control mt-4">
                                 <label className="label">
-                                    <span className="label-text">Password</span>
+                                    <span className="label-text"> Password</span>
                                 </label>
-                                <input type="password" name='password' placeholder="password" className="input input-bordered" />
-                                <label className="label">
-                                    <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                                <label className="relative">
+                                    <input type={showPass ? 'text' : 'password'} name='password' placeholder='*******' className=' my-input mb-1' required />
+                                    <span>
+                                        {
+                                            !showPass ? <EyeIcon title='Show password' onClick={() => setShowPass(true)} className='h-6 w-6 absolute top-2 right-3 z-20 cursor-pointer'></EyeIcon>
+                                                : <EyeSlashIcon title='Hide password' onClick={() => setShowPass(false)} className='h-6 w-6 absolute top-2 right-3 z-20 cursor-pointer'></EyeSlashIcon>
+                                        }
+                                    </span>
                                 </label>
                             </div>
                             <div className="form-control mt-6">
@@ -69,7 +76,7 @@ const Login = () => {
                         </form>
                         <h2>Don't Have an Account? <Link to='/signup' className='text-cyan-600'>Sign Up</Link></h2>
                         <SocialLogin></SocialLogin>
-                        
+
                     </div>
                 </div>
             </div>
