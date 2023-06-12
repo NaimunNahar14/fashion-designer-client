@@ -20,6 +20,7 @@ import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses";
 import Payment from "../Pages/Dashboard/Payment/Payment";
 
 import Feedbackform from "../Pages/Home/Feedbackform";
+import ErrorPage from "../ErrorPage";
 
 
 
@@ -27,6 +28,7 @@ export const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: '/',

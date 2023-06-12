@@ -32,29 +32,39 @@ const Navbar = () => {
             <Link to="/instructors">Instructors</Link>
         </li>
         <li>
-            <Link to="/classes">Classes</Link>
-        </li>
-        <li>
             <Link to="/dashboard">
                 <button className="btn gap-2">
-                    <FaShoppingCart></FaShoppingCart>
+                    Dashboard
                     <div className="badge badge-secondary">+{cart?.length || 0}</div>
                 </button>
             </Link>
         </li>
         <li>
-            <Link to="/reviews">FeedBack</Link>
+            <Link to="/err">Error Page</Link>
         </li>
-
-        {
-            user ? <>
-                <span>{user?.displayName}</span>
-                {/* <span>{user?.photoURL}</span> */}
-                <button onClick={handleLogOut} className="btn btn-active btn-ghost">Logout</button>
-            </> : <>
-                <li><Link to="/login">Login</Link></li>
+        {user ? (
+            <>
+                <li>
+                    <Link to="/classes">Classes</Link>
+                </li>
+                <li>
+                    <Link to="/reviews">Feedback</Link>
+                </li>
+                <li>
+                    <span>{user?.displayName}</span>
+                    <button
+                        onClick={handleLogOut}
+                        className="btn btn-active btn-ghost"
+                    >
+                        Logout
+                    </button>
+                </li>
             </>
-        }
+        ) : (
+            <li>
+                <Link to="/login">Login</Link>
+            </li>
+        )}
     </>
     return (
         <>
