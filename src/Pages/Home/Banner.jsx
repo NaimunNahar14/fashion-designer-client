@@ -11,8 +11,6 @@ import "swiper/css/pagination";
 import './Banner.css';
 
 
-
-
 const Banner = () => {
     const pagination = {
         clickable: true,

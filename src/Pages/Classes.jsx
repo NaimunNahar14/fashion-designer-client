@@ -13,7 +13,7 @@ const Classes = () => {
     const [, refetch] = useCart();
 
     useEffect(() => {
-        fetch('http://localhost:5000/classes')
+        fetch('https://fashion-designer-server.vercel.app/classes')
             .then((res) => res.json())
             .then((data) => setClasses(data));
     }, []);
@@ -30,7 +30,7 @@ const Classes = () => {
                 availableSeats: selectedClass.availableSeats
             };
 
-            fetch('http://localhost:5000/carts', {
+            fetch('https://fashion-designer-server.vercel.app/carts', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'

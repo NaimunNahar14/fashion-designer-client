@@ -6,7 +6,7 @@ import UseClasses from '../../../Hooks/UseClasses';
 const ManageClasses = () => {
     const [classes] = UseClasses();
     const handleApprove = id => {
-        fetch(`http://localhost:5000/classes/${id}`, {
+        fetch(`https://fashion-designer-server.vercel.app/classes/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -23,7 +23,7 @@ const ManageClasses = () => {
     };
 
     const handleDeny = id => {
-        fetch(`http://localhost:5000/classes/${id}`, {
+        fetch(`https://fashion-designer-server.vercel.app/classes/${id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

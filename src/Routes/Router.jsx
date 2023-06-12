@@ -18,10 +18,9 @@ import AdminRoute from "./AdminRoute";
 import InstructorRoute from "./InstructorRoute";
 import ManageClasses from "../Pages/Dashboard/Admin/ManageClasses";
 import Payment from "../Pages/Dashboard/Payment/Payment";
-
 import Feedbackform from "../Pages/Home/Feedbackform";
 import ErrorPage from "../ErrorPage";
-import MyClass from "../Pages/Dashboard/Instructor/MyClass";
+
 
 
 

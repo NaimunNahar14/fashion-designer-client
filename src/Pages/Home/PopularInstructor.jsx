@@ -5,7 +5,7 @@ import Title from '../../Components/Title';
 const PopularInstructor = () => {
     const [instructors, setinstructors] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/instructors')
+        fetch('https://fashion-designer-server.vercel.app/instructors')
             .then(res => res.json())
             .then(data => setinstructors(data))
     }, [])
